@@ -24,7 +24,7 @@ async function handleRequest(request) {
 	});
 
 	// Parse user parameter
-	const position = new URL(request.url).searchParams.get("n");
+	const position = new URL(request.url).searchParams.get("n") || 0;
 
 	// Call main function where first argument = nth digit of PI to calculate
 	m.callMain([ position ]);
