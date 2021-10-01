@@ -1,4 +1,4 @@
 name = "test-worker"
 type = "webpack"
-webpack_config = "webpack.config.js"
 workers_dev = true
+wasm_modules = { PI_WASM = "./pi.wasm" }
