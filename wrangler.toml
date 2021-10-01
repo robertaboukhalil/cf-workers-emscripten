@@ -1,4 +1,4 @@
-name = "test-worker"
+name = "pi"
 type = "webpack"
 workers_dev = true
 wasm_modules = { PI_WASM = "./pi.wasm" }
