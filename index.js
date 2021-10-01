@@ -1,4 +1,4 @@
-import Module from "./wgsim.cloudflare.js";
+import Module from "./pi.js";
 
 addEventListener("fetch", event => {
 	event.respondWith(handleRequest(event.request));
@@ -23,8 +23,11 @@ async function handleRequest(request) {
 		}
 	});
 
-	// Call main function
-	m.callMain([]);
+	// Parse user parameter
+	const position = new URL(request.url).searchParams.get("n");
 
-	return new Response(output, { headers: { "Content-Type": "text/plain" } });
+	// Call main function where first argument = nth digit of PI to calculate
+	m.callMain([ position ]);
+
+	return new Response(output);
 }
