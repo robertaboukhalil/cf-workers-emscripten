@@ -1,12 +1,4 @@
-/target
-**/*.rs.bk
-Cargo.lock
-bin/
-pkg/
-wasm-pack.log
+dist/
 worker/
 node_modules/
-dist/
-build/
-emscripten.*
-.cargo-ok
+package-lock.json
