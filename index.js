@@ -12,12 +12,10 @@ async function handleRequest(request) {
 		print: text => output += `${text}\n`,
 		printErr: text => output += `${text}\n`,
 
-		// Instead of downloading the .wasm file, fetch it from the global var "WASM_MODULE".
-		// Docs: <https://emscripten.org/docs/api_reference/module.html#Module.instantiateWasm>
+		// Instead of downloading the .wasm file, fetch it from a global var
 		instantiateWasm: (imports, callback) => {
-			// Note that "WASM_MODULE" is a variable that contains the .wasm file
-			// and is created at deploy time by "wrangler publish".
-			const instance = new WebAssembly.Instance(WASM_MODULE, imports);
+			// Note that "PI_WASM" is defined in wrangler.toml
+			const instance = new WebAssembly.Instance(PI_WASM, imports);
 			callback(instance);
 			return instance.exports;
 		}
