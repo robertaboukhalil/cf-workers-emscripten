@@ -16,7 +16,9 @@ emcc -O2 src/pi.c -o pi.js \
   -s MODULARIZE=1
 ```
 
-* Use `wrangler publish` to deploy
+* Define the WebAssembly modules and their bindings in `wrangler.toml`
+
+* Deploy using `wrangler publish`.
 
 ### Todo
 
