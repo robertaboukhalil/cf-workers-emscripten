@@ -8,7 +8,7 @@ A minimal template for running C/C++ code on Cloudflare Workers using WebAssembl
 
 ```
 # Using Emscripten 2.0.25
-emcc -O2 src/pi.c -o pi.js \
+emcc -O2 pi.c -o pi.js \
   -s INVOKE_RUN=0 \
   -s EXPORTED_RUNTIME_METHODS=["callMain"] \
   -s TEXTDECODER=0 \
