@@ -6,7 +6,7 @@ A minimal template for running C/C++ code on Cloudflare Workers using WebAssembl
 
 * When compiling to WebAssembly, make sure to use the Emscripten flags `-s TEXTDECODER=0 -s ENVIRONMENT="web" -s MODULARIZE=1`:
 
-```
+```bash
 # Using Emscripten 2.0.25
 emcc -O2 pi.c -o pi.js \
   -s INVOKE_RUN=0 \
@@ -18,8 +18,8 @@ emcc -O2 pi.c -o pi.js \
 
 * Define the WebAssembly modules and their bindings in `wrangler.toml`
 
+```toml
+wasm_modules = { PI_WASM = "./pi.wasm" }
+```
+
 * Deploy using `wrangler publish`.
-
-### Todo
-
-* Is `--pre-js pre.js` where pre.js contains `const document = this` needed?
