@@ -4,7 +4,7 @@ A minimal template for running C/C++ code on Cloudflare Workers using WebAssembl
 
 ### Usage
 
-* When compiling to WebAssembly, make sure to use the Emscripten flags `-s TEXTDECODER=0 -s ENVIRONMENT="web" -s MODULARIZE=1`:
+* When compiling to WebAssembly, make sure to use the Emscripten flags `-s TEXTDECODER=0 -s ENVIRONMENT=web -s MODULARIZE=1`. Note that `-s TEXTDECODER=0` is needed because Cloudflare Workers [doesn't support the TextDecoder API with UTF-16/UTF-32 encodings](https://twitter.com/xortive/status/1160972310955905030).
 
 ```bash
 # Using Emscripten 2.0.25
@@ -16,7 +16,7 @@ emcc -O2 pi.c -o pi.js \
   -s MODULARIZE=1
 ```
 
-* Define the WebAssembly modules and their bindings in `wrangler.toml`
+* Define the WebAssembly modules and their bindings in `wrangler.toml`:
 
 ```toml
 wasm_modules = { PI_WASM = "./pi.wasm" }
